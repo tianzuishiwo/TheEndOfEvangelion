@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="beauty.wsh.com.growdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".adb.ADBActivity">
+            <intent-filter>
+              <!--  <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>-->
+                <action android:name="android.intent.action.my.adb.activity">
+                    //action 
+                </action>
+                <category android:name="android.intent.category.my.adb.activity">
+                    //category
+                </category>
+                <data>
+                    //data
+                </data>
+            </intent-filter>
+        </activity>
+        <service android:name=".adb.ADBService">
+            <intent-filter>
+                <action android:name="android.intent.action.my.adb.service"></action>
+                <category android:name="android.intent.category.my.adb.service"></category>
+                <data></data>
+            </intent-filter>
+        </service>
+        <receiver android:name=".adb.ADBBroadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.my.adb.broadcast"></action>
+                <category android:name="android.intent.category.my.adb.category"></category>
+                <data></data>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

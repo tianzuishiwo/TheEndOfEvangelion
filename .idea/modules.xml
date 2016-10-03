@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/TheEndOfEvangelion.iml" filepath="$PROJECT_DIR$/TheEndOfEvangelion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framedemo/framedemo.iml" filepath="$PROJECT_DIR$/framedemo/framedemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/growdemo/growdemo.iml" filepath="$PROJECT_DIR$/growdemo/growdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/helloandroiddemo/helloandroiddemo.iml" filepath="$PROJECT_DIR$/helloandroiddemo/helloandroiddemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javademo/javademo.iml" filepath="$PROJECT_DIR$/javademo/javademo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netdemo/netdemo.iml" filepath="$PROJECT_DIR$/netdemo/netdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utilsdemo/utilsdemo.iml" filepath="$PROJECT_DIR$/utilsdemo/utilsdemo.iml" />
+    </modules>
+  </component>
+</project>

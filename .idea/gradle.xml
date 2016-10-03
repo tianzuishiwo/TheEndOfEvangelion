@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:\My_data\Development_Soft\Andoid_Studio\as\gradle\gradle-2.10" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/framedemo" />
+            <option value="$PROJECT_DIR$/growdemo" />
+            <option value="$PROJECT_DIR$/helloandroiddemo" />
+            <option value="$PROJECT_DIR$/javademo" />
+            <option value="$PROJECT_DIR$/netdemo" />
+            <option value="$PROJECT_DIR$/utilsdemo" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
