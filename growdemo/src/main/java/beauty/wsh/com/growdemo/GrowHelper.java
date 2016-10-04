@@ -4,8 +4,10 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.TextView;
 
+import beauty.wsh.com.growdemo.applyaar.AARHelper;
 import beauty.wsh.com.growdemo.jni.JniUtils;
 import beauty.wsh.com.growdemo.obfuscate.MyObfuscate;
+import beauty.wsh.com.info.MyInfo;
 
 /**
  * Created by wuShaoHua on 2016/9/16.
@@ -29,12 +31,17 @@ public class GrowHelper {
         mMainHandler = mainHandler;
     }
     
-    // 点击，调用这个方法
+   
     public String getToastStr(){
-        //TODO
 //        String CStr = JniUtils.getStringFromC("this is java");
         String CStr = MyObfuscate.getmInstance().getStrFromMyObfuscate();
         mTvContent.setText(CStr);
         return CStr;
+    }
+    // 点击，调用这个方法
+    public void start() {
+        String info = MyInfo.getInfo();
+        mTvParameter.setText(info);
+        AARHelper.getmInstance().init(mContext,mMainHandler,mTvContent).start();
     }
 }

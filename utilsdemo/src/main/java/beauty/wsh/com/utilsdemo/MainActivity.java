@@ -7,11 +7,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import beauty.wsh.com.growdemo.jni.JniUtils;
+import beauty.wsh.com.info.MyInfo;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTvContent;
+    private boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,14 @@ public class MainActivity extends AppCompatActivity {
     }
     
     public void click(View view){
-        String CString = JniUtils.getStringFromC("java");
+        flag = !flag;
+        String CString = "default";
+        if (flag){
+            CString  = JniUtils.getStringFromC("java");
+        }else {
+            CString = MyInfo.getInfo();
+        }
+      
         XLog.w("CString: "+CString);
         Toast.makeText(this,"Toast:"+CString,Toast.LENGTH_SHORT).show();
         mTvContent.setText(CString);

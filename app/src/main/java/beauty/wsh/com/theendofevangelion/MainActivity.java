@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import beauty.wsh.com.httpjar.MyHttpGet;
 import beauty.wsh.com.theendofevangelion.jni.MyJniUtils;
 
 public class MainActivity extends AppCompatActivity {

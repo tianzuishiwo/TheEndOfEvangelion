@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void click(View view) {
         XLog.e("---click---");
 //        startActivity(new Intent(this, ADBActivity.class));
-        Toast.makeText(this, "Toast: " + mHelper.getToastStr(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Toast: " + mHelper.getToastStr(), Toast.LENGTH_SHORT).show();
+        mHelper.start();
     }
 }
