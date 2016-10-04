@@ -1,1 +1,1 @@
-include ':app', ':netdemo', ':growdemo', ':helloandroiddemo', ':utilsdemo', ':javademo', ':framedemo'
+include ':app', ':netdemo', ':growdemo', ':helloandroiddemo', ':utilsdemo', ':javademo', ':framedemo', ':testserver', ':testclient'
