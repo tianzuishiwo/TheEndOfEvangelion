@@ -79,6 +79,12 @@ public class UDPServer {
     }
     public void sendData(DatagramPacket datagramPacket) {
         if (mUdpServerSocket != null ) {
+            if (datagramPacket==null)return;
+            String desIp = datagramPacket.getAddress().getHostAddress();
+            int desPort = datagramPacket.getPort();
+            byte[] data = datagramPacket.getData();
+            String desData = new String(data, 0, datagramPacket.getLength());
+            XLog.w("datagramPacket desIp = "+desIp+" desPort = "+desPort+" desData = "+desData);
             try {
                 mUdpServerSocket.send(datagramPacket);
             } catch (IOException e) {
