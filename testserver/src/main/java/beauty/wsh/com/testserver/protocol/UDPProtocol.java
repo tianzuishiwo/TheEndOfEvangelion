@@ -1,4 +1,4 @@
-package beauty.wsh.com.testserver;
+package beauty.wsh.com.testserver.protocol;
 
 import java.net.DatagramSocket;
 
@@ -11,14 +11,14 @@ import beauty.wsh.com.testserver.utils.XLog;
  * Created by wuShaoHua on 2016/10/4.
  */
 
-public class Protocol implements IReceiveData {// 服务端协议
-    private static Protocol mInstance = new Protocol();
+public class UDPProtocol implements IReceiveData {// 服务端协议
+    private static UDPProtocol mInstance = new UDPProtocol();
     private DatagramSocket mUdpServerSocket;
 
-    private Protocol() {
+    private UDPProtocol() {
     }
 
-    public static Protocol getmInstance() {
+    public static UDPProtocol getmInstance() {
         return mInstance;
     }
 
@@ -35,9 +35,11 @@ public class Protocol implements IReceiveData {// 服务端协议
         switch (receiveData) {
             case "request":
                 XLog.w("处理，request");
-                //TODO 具体协议(特别数据才走这里)
                 if (mUdpServerSocket==null){
                     mUdpServerSocket = UDPServer.getmInstance().getUdpServerSocket();
+                }
+                if (!UDPServer.enableSend){
+                    UDPServer.enableSend = true;
                     new Thread(new SendRunnable(mUdpServerSocket,ip,port)).start();
                 }
                 break;
@@ -48,11 +50,6 @@ public class Protocol implements IReceiveData {// 服务端协议
             default:
                 break;
         }
-        sendData(sendData);
-    }
-
-    private void sendData(String sendData) {
-        UDPServer.getmInstance().sendData(sendData);
     }
 
 }

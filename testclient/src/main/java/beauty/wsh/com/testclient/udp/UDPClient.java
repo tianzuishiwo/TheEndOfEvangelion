@@ -40,6 +40,8 @@ public class UDPClient {
     private void start() {
         XLog.e("---start---");
         //要发送的数据包
+        enableSend = true;
+        enableReceived = true;
         if (mSendUDPPacket==null){
             mSendUDPPacket = new DatagramPacket(sendUDPData.getBytes(), 0, sendUDPData.length());
         }
@@ -52,6 +54,7 @@ public class UDPClient {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            XLog.e("udp开启失败：e="+e);
         }
     }
     
@@ -97,10 +100,10 @@ public class UDPClient {
             enableReceived = false;
         if (enableSend)// 关闭发送线程
             enableSend = false;
-        if (mClientUDPSocket!=null&&mClientUDPSocket.isConnected()){
+        if (mClientUDPSocket!=null){
             mClientUDPSocket.close();
+            mClientUDPSocket = null;
         }
-        
        
     }
 }

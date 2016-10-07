@@ -13,7 +13,7 @@ import beauty.wsh.com.testserver.utils.XLog;
 
 public class UDPServer {
     public static boolean enableReceived = true;
-    public static boolean enableSend = true;
+    public static boolean enableSend = false;
     private static UDPServer mInstance = new UDPServer();
     private DatagramPacket mReceivePacket;
 
@@ -41,6 +41,7 @@ public class UDPServer {
 
     private void open() {
         XLog.e("---open---");
+        enableReceived = true;
         if (mDatagramPacket == null) {
             mDatagramPacket = new DatagramPacket(sendData.getBytes(), 0, sendData.length());
         }
@@ -49,9 +50,9 @@ public class UDPServer {
                 mUdpServerSocket = new DatagramSocket(serverPort);
                 new Thread(new ReceiveRunnable(mUdpServerSocket)).start();
             }
-
         } catch (SocketException e) {
             e.printStackTrace();
+            XLog.e("开启UDPServer,异常: e="+e);
         }
     }
 
@@ -59,12 +60,11 @@ public class UDPServer {
         XLog.e("---closeUDPServer---");
         if (enableReceived) enableReceived = false;
         if (enableSend) enableSend = false;
-        if (mUdpServerSocket != null && mUdpServerSocket.isConnected()) {
-            mUdpServerSocket.disconnect();
+        if (mUdpServerSocket != null) {
+//            mUdpServerSocket.disconnect();
             mUdpServerSocket.close();
             mUdpServerSocket = null;
         }
-
     }
 
     public void sendData(String data) {

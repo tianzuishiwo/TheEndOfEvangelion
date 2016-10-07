@@ -27,4 +27,9 @@
         android:layout_height="wrap_content"
         android:onClick="finish"
         android:text="关闭"/>
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="closeudpserver"
+        android:text="UDPServer.enableSend"/>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package beauty.wsh.com.testserver;
 
+import beauty.wsh.com.testserver.tcp.TcpServer;
 import beauty.wsh.com.testserver.udp.UDPServer;
 import beauty.wsh.com.testserver.utils.XLog;
 
@@ -10,6 +11,7 @@ import beauty.wsh.com.testserver.utils.XLog;
 public class ServerHelper {
     private static ServerHelper mInstance = new ServerHelper();
     private UDPServer mUdpServer;
+    private TcpServer mTcpServer;
 
     private ServerHelper() {
     }
@@ -18,15 +20,20 @@ public class ServerHelper {
     }
     
     public void start(){
-        XLog.e("---start---");
+        XLog.i("---start---");
         mUdpServer = UDPServer.getmInstance();
         mUdpServer.openUDPServer();
+        mTcpServer = TcpServer.getmInstance();
+        mTcpServer.startTcpServer();
     }
     
     public void finish(){
-        XLog.e("---finish---");
+        XLog.i("---finish---");
         if (mUdpServer!=null){
             mUdpServer.closeUDPServer();
+        }
+        if (mTcpServer!=null){
+            mTcpServer.finishTcpServer();;
         }
     }
 }

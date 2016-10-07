@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import beauty.wsh.com.testserver.udp.UDPServer;
 import beauty.wsh.com.testserver.utils.XLog;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,5 +23,10 @@ public class MainActivity extends AppCompatActivity {
     public void finish(View view){
         XLog.e("---finish---");
         ServerHelper.getmInstance().finish();
+    }
+    
+    public void closeudpserver(View view){
+        UDPServer.enableSend = false;
+        XLog.e("UDPServer.enableSend = "+UDPServer.enableSend);
     }
 }

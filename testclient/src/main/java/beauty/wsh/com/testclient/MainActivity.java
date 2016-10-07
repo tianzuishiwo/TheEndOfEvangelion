@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        XLog.e("---initData---");
+        XLog.i("---initData---");
         XLog.e("这是客户端");
         mContext = getApplicationContext();
     }
@@ -34,11 +34,22 @@ public class MainActivity extends AppCompatActivity {
     }
     
     public void startUDPClient(View view){
-        XLog.e("---startUDPClient---");
+        XLog.i("---startUDPClient---");
         ClientHelper.getmInstance().init(mContext).start();
     }
     
     public void finish(View view){
-        XLog.e("---finish---");
+        XLog.i("---finish---");
+        ClientHelper.getmInstance().finish();
+    }
+    
+    public void send(View view){
+        XLog.i("---send---");
+        ClientHelper.getmInstance().sendData();
+    }
+    
+    public void reset(View view){
+        XLog.w("---reset---");
+        ClientHelper.getmInstance().reset();
     }
 }

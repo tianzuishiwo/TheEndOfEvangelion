@@ -27,4 +27,14 @@
         android:layout_height="wrap_content"
         android:onClick="finish"
         android:text="关闭"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="reset"
+        android:text="一键重置"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="send"
+        android:text="发送数据"/>
 </LinearLayout>

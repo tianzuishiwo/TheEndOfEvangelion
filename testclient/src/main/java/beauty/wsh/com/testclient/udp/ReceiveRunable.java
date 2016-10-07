@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-import beauty.wsh.com.testclient.Protocol;
+import beauty.wsh.com.testclient.protocol.UDPProtocol;
 import beauty.wsh.com.testclient.utils.XLog;
 
 /**
@@ -27,7 +27,7 @@ public class ReceiveRunable implements Runnable{
                 mClientUDPSocket.receive(receivePacket);
                 String ip = receivePacket.getAddress().getHostAddress();
                 int port = receivePacket.getPort();
-                Protocol protocol = Protocol.getmInstance();
+                UDPProtocol protocol = UDPProtocol.getmInstance();
                 protocol.onReceiveData(receivePacket.getData(),0,receivePacket.getLength(),ip,port);
             } catch (IOException e) {
                 e.printStackTrace();

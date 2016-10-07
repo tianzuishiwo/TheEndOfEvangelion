@@ -29,6 +29,7 @@ public class SendRunable implements Runnable {
             broadPacket = new DatagramPacket(data.getBytes(), data.length(), inetSocketAddress);
         } catch (SocketException e) {
             e.printStackTrace();
+            XLog.e("发送广播失败");
         }
         while (UDPClient.enableSend){
             XLog.e("---while---");

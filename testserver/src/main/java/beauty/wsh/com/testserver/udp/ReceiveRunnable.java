@@ -3,9 +3,8 @@ package beauty.wsh.com.testserver.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.SocketAddress;
 
-import beauty.wsh.com.testserver.Protocol;
+import beauty.wsh.com.testserver.protocol.UDPProtocol;
 import beauty.wsh.com.testserver.utils.XLog;
 
 /**
@@ -31,7 +30,8 @@ public class ReceiveRunnable implements Runnable {
                mUdpServerSocket.receive(mReceivePacket);
                String ip = mReceivePacket.getAddress().getHostAddress();
                int port = mReceivePacket.getPort();
-               Protocol.getmInstance().onReceiveData(mReceivePacket.getData(),0,mReceivePacket.getLength(),ip,port);
+               XLog.w("服务端收到的: ip = "+ip+" port= "+port);
+               UDPProtocol.getmInstance().onReceiveData(mReceivePacket.getData(),0,mReceivePacket.getLength(),ip,port);
            } catch (IOException e) {
                e.printStackTrace();
            }
