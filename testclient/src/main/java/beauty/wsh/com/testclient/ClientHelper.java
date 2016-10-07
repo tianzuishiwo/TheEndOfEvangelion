@@ -3,6 +3,8 @@ package beauty.wsh.com.testclient;
 import android.content.Context;
 import android.os.SystemClock;
 
+import java.net.InetSocketAddress;
+
 import beauty.wsh.com.testclient.tcp.TcpClient;
 import beauty.wsh.com.testclient.udp.UDPClient;
 import beauty.wsh.com.testclient.utils.XLog;
@@ -24,6 +26,7 @@ public class ClientHelper {
     
     public ClientHelper init(Context context){
         mContext = context;
+        InfoManager.setContext(mContext);
         return mInstance;
     }
     

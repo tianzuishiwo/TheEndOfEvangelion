@@ -48,8 +48,8 @@ public class UDPClient {
         try {
             if (mClientUDPSocket==null){
                 mClientUDPSocket = new DatagramSocket(clientPort);
-                //TODO 1.发送和监听的端口，怎么区分？
-                //TODO 2.发送的广播地址？
+                // 1.发送和监听的端口，怎么区分？ answer: 监听端口定义在datagramsocket构造方法中，发送端口定义在datagrampacket数据包中；
+                // 2.发送的广播地址？ answer: 广播地址定义在datagrampacket数据包中。
                 new Thread(new ReceiveRunable(mClientUDPSocket)).start();
             }
         } catch (Exception e) {

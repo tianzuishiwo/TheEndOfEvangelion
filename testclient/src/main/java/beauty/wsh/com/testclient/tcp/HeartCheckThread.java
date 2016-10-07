@@ -4,6 +4,8 @@ import android.os.SystemClock;
 
 import java.util.Calendar;
 
+import beauty.wsh.com.testclient.ClientHelper;
+import beauty.wsh.com.testclient.InfoManager;
 import beauty.wsh.com.testclient.udp.UDPClient;
 import beauty.wsh.com.testclient.utils.XLog;
 
@@ -31,13 +33,8 @@ public class HeartCheckThread extends Thread {
             mCurrentTime.getTimeInMillis();
             if (mCurrentTime.getTimeInMillis()-mLastTime.getTimeInMillis()>30*second){
                 XLog.w("心跳超时，重新建立连接。");
-                //TODO 
-                TcpClient.getmInstance().finishTcpClient();
-                UDPClient.getmInstance().closeUDPClient();
-                SystemClock.sleep(2500L);
+                ClientHelper.getmInstance().reset();
                 XLog.e(" 重新建立连接...");
-//                TcpClient.getmInstance().startLinkServer();
-                UDPClient.getmInstance().startUDPBroad();
             }else {
                 XLog.d("check normal , sleep ......");
                 SystemClock.sleep(20000L);
